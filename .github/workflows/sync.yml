@@ -1,0 +1,90 @@
+name: Sync JSON
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '取得日（JST、YYYY-MM-DD）。空欄なら当日'
+        required: false
+        type: string
+  schedule:
+    - cron: '17 * * * *'
+    - cron: '47 21 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: boatrace-json
+  cancel-in-progress: false
+jobs:
+  sync:
+    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_SYNC == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    outputs:
+      sync_outcome: ${{ steps.fetch.outcome }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: python -m unittest discover -s tests -v
+      - name: Fetch and validate
+        id: fetch
+        continue-on-error: true
+        env:
+          TARGET_DATE: ${{ inputs.date }}
+          SCHEDULE: ${{ github.event.schedule }}
+        run: |
+          if [ -n "$TARGET_DATE" ]; then
+            python sync.py --date "$TARGET_DATE"
+          elif [ "$SCHEDULE" = '47 21 * * *' ]; then
+            python sync.py --recent-days 3
+          else
+            python sync.py
+          fi
+      - name: Commit data and status
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add docs/v1
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update BOATRACE JSON and sync status'
+            git push origin HEAD
+          fi
+      - uses: actions/upload-pages-artifact@v3
+        if: vars.ENABLE_PAGES == 'true'
+        with:
+          path: docs
+  deploy:
+    needs: sync
+    if: needs.sync.result == 'success' && vars.ENABLE_PAGES == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+  report:
+    needs: [sync, deploy]
+    if: always() && needs.sync.result != 'skipped'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report failure after preserving data and publishing status
+        env:
+          SYNC_RESULT: ${{ needs.sync.result }}
+          FETCH_RESULT: ${{ needs.sync.outputs.sync_outcome }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+        run: |
+          if [ "$SYNC_RESULT" != 'success' ] || [ "$FETCH_RESULT" != 'success' ] || [ "$DEPLOY_RESULT" = 'failure' ] || [ "$DEPLOY_RESULT" = 'cancelled' ]; then
+            echo '取得または公開に失敗しました。ジョブログと docs/v1/status.json を確認してください。'
+            exit 1
+          fi
