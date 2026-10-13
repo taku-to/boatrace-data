@@ -12,6 +12,8 @@ on:
     # JST 08:05-08:55, then 09:00-22:55, every five minutes.
     - cron: '5-55/5 23 * * *'
     - cron: '*/5 0-13 * * *'
+    # JST 23:00, 23:05, 23:10; no new fetches from 23:15 onward.
+    - cron: '0,5,10 14 * * *'
 permissions:
   contents: read
 concurrency:
@@ -32,12 +34,12 @@ jobs:
         id: window
         shell: bash
         run: |
-          hour=$(TZ=Asia/Tokyo date +%H)
-          if (( 10#$hour >= 8 && 10#$hour < 23 )); then
+          jst_time=$(TZ=Asia/Tokyo date +%H%M)
+          if (( 10#$jst_time >= 800 && 10#$jst_time < 2315 )); then
             echo 'allowed=true' >> "$GITHUB_OUTPUT"
           else
             echo 'allowed=false' >> "$GITHUB_OUTPUT"
-            echo '23:00-08:00 JST: skipping data collection and publication.'
+            echo '23:15-08:00 JST: skipping data collection and publication.'
           fi
       - uses: actions/checkout@v4
         if: steps.window.outputs.allowed == 'true'
@@ -58,9 +60,9 @@ jobs:
           TARGET_DATE: ${{ inputs.date }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
-          # Recheck after setup/tests in case they crossed 23:00 JST.
-          hour=$(TZ=Asia/Tokyo date +%H)
-          if (( 10#$hour < 8 || 10#$hour >= 23 )); then
+          # Recheck after setup/tests in case they crossed 23:15 JST.
+          jst_time=$(TZ=Asia/Tokyo date +%H%M)
+          if (( 10#$jst_time < 800 || 10#$jst_time >= 2315 )); then
             echo 'Operating hours ended; skipping this fetch.'
             exit 0
           fi
