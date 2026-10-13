@@ -7,8 +7,11 @@ on:
         required: false
         type: string
   schedule:
-    - cron: '17 * * * *'
-    - cron: '47 21 * * *'
+    # UTC 23:00 = JST 08:00; refresh today and the preceding two days.
+    - cron: '0 23 * * *'
+    # JST 08:05-08:55, then 09:00-22:55, every five minutes.
+    - cron: '5-55/5 23 * * *'
+    - cron: '*/5 0-13 * * *'
 permissions:
   contents: read
 concurrency:
@@ -23,30 +26,54 @@ jobs:
       contents: write
     outputs:
       sync_outcome: ${{ steps.fetch.outcome }}
+      attempted_fetch: ${{ steps.fetch.outputs.attempted }}
     steps:
+      - name: Check operating hours (JST)
+        id: window
+        shell: bash
+        run: |
+          hour=$(TZ=Asia/Tokyo date +%H)
+          if (( 10#$hour >= 8 && 10#$hour < 23 )); then
+            echo 'allowed=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'allowed=false' >> "$GITHUB_OUTPUT"
+            echo '23:00-08:00 JST: skipping data collection and publication.'
+          fi
       - uses: actions/checkout@v4
+        if: steps.window.outputs.allowed == 'true'
         with:
           ref: ${{ github.event.repository.default_branch }}
       - uses: actions/setup-python@v5
+        if: steps.window.outputs.allowed == 'true'
         with:
           python-version: '3.12'
       - name: Test
+        if: steps.window.outputs.allowed == 'true'
         run: python -m unittest discover -s tests -v
       - name: Fetch and validate
+        if: steps.window.outputs.allowed == 'true'
         id: fetch
         continue-on-error: true
         env:
           TARGET_DATE: ${{ inputs.date }}
           SCHEDULE: ${{ github.event.schedule }}
         run: |
+          # Recheck after setup/tests in case they crossed 23:00 JST.
+          hour=$(TZ=Asia/Tokyo date +%H)
+          if (( 10#$hour < 8 || 10#$hour >= 23 )); then
+            echo 'Operating hours ended; skipping this fetch.'
+            exit 0
+          fi
+          echo 'attempted=true' >> "$GITHUB_OUTPUT"
           if [ -n "$TARGET_DATE" ]; then
             python sync.py --date "$TARGET_DATE"
-          elif [ "$SCHEDULE" = '47 21 * * *' ]; then
+          elif [ "$SCHEDULE" = '0 23 * * *' ]; then
             python sync.py --recent-days 3
           else
             python sync.py
           fi
       - name: Commit data and status
+        if: steps.fetch.outputs.attempted == 'true'
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
@@ -56,12 +83,12 @@ jobs:
             git push origin HEAD
           fi
       - uses: actions/upload-pages-artifact@v3
-        if: vars.ENABLE_PAGES == 'true'
+        if: steps.fetch.outputs.attempted == 'true' && vars.ENABLE_PAGES == 'true'
         with:
           path: docs
   deploy:
     needs: sync
-    if: needs.sync.result == 'success' && vars.ENABLE_PAGES == 'true'
+    if: needs.sync.result == 'success' && needs.sync.outputs.attempted_fetch == 'true' && vars.ENABLE_PAGES == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write
@@ -75,7 +102,7 @@ jobs:
         uses: actions/deploy-pages@v4
   report:
     needs: [sync, deploy]
-    if: always() && needs.sync.result != 'skipped'
+    if: always() && needs.sync.result != 'skipped' && (needs.sync.result != 'success' || needs.sync.outputs.attempted_fetch == 'true')
     runs-on: ubuntu-latest
     steps:
       - name: Report failure after preserving data and publishing status
