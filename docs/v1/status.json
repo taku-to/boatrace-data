@@ -2,13 +2,13 @@
   "schema_version": 1,
   "dates": {
     "2026-10-13": {
-      "last_checked_at": "2026-10-14T10:38:10+09:00",
+      "last_checked_at": "2026-10-15T08:00:13+09:00",
       "status": "ok",
-      "last_success_at": "2026-10-14T10:38:10+09:00",
+      "last_success_at": "2026-10-15T08:00:13+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261013.json",
-        "http_last_modified": "Wed, 14 Oct 2026 01:33:06 GMT",
-        "etag": "\"6acedbd2-12d791\""
+        "http_last_modified": "Wed, 14 Oct 2026 18:19:45 GMT",
+        "etag": "\"6acfc7c1-12d791\""
       },
       "sha256": "a53fcf6e57c681f2474c30202991ee1cf7fc06b8081964341a63b8defe668a41",
       "summary": {
@@ -44,15 +44,36 @@
       }
     },
     "2026-10-14": {
-      "last_checked_at": "2026-10-14T23:10:09+09:00",
+      "last_checked_at": "2026-10-15T08:00:13+09:00",
       "status": "ok",
-      "last_success_at": "2026-10-14T23:10:09+09:00",
+      "last_success_at": "2026-10-15T08:00:13+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261014.json",
-        "http_last_modified": "Wed, 14 Oct 2026 13:56:19 GMT",
-        "etag": "\"6acf8a03-16444e\""
+        "http_last_modified": "Wed, 14 Oct 2026 18:19:45 GMT",
+        "etag": "\"6acfc7c1-1646cd\""
       },
-      "sha256": "532c3f62e969a9f4879921c92b187b52c608d388d55e59b323a76c1e921ab2ce",
+      "sha256": "d8d74250a1b209be10c3ad959d2fe7a6fd18e0d6255578383768a1473b99310d",
+      "summary": {
+        "stadium_count": 13,
+        "race_count": 156,
+        "with_preview_count": 156,
+        "with_result_count": 156,
+        "grade_race_counts": {
+          "G1": 12,
+          "一般": 144
+        }
+      }
+    },
+    "2026-10-15": {
+      "last_checked_at": "2026-10-15T08:00:13+09:00",
+      "status": "ok",
+      "last_success_at": "2026-10-15T08:00:13+09:00",
+      "source": {
+        "url": "https://boatraceopenapi.github.io/api/v1/2026/20261015.json",
+        "http_last_modified": "Wed, 14 Oct 2026 18:19:45 GMT",
+        "etag": "\"6acfc7c1-14b6ff\""
+      },
+      "sha256": "863cc29722613b70d024fb4a26e71e9a78bc0cf1a5cec197ba3992e22d134874",
       "summary": {
         "stadium_count": 13,
         "race_count": 156,
@@ -65,7 +86,7 @@
       }
     }
   },
-  "updated_at": "2026-10-14T23:10:09+09:00",
-  "today_date": "2026-10-14",
+  "updated_at": "2026-10-15T08:00:13+09:00",
+  "today_date": "2026-10-15",
   "today_available": true
 }
