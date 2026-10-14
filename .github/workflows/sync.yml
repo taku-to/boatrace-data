@@ -6,14 +6,14 @@ on:
         description: '取得日（JST、YYYY-MM-DD）。空欄なら当日'
         required: false
         type: string
-  schedule:
-    # UTC 23:00 = JST 08:00; refresh today and the preceding two days.
-    - cron: '0 23 * * *'
-    # JST 08:05-08:55, then 09:00-22:55, every five minutes.
-    - cron: '5-55/5 23 * * *'
-    - cron: '*/5 0-13 * * *'
-    # JST 23:00, 23:05, 23:10; no new fetches from 23:15 onward.
-    - cron: '0,5,10 14 * * *'
+      mode:
+        description: 'today: 当日 / recent: 当日・前日・前々日'
+        required: true
+        type: choice
+        default: today
+        options:
+          - today
+          - recent
 permissions:
   contents: read
 concurrency:
@@ -21,7 +21,6 @@ concurrency:
   cancel-in-progress: false
 jobs:
   sync:
-    if: github.event_name == 'workflow_dispatch' || vars.ENABLE_SYNC == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -58,7 +57,7 @@ jobs:
         continue-on-error: true
         env:
           TARGET_DATE: ${{ inputs.date }}
-          SCHEDULE: ${{ github.event.schedule }}
+          SYNC_MODE: ${{ inputs.mode }}
         run: |
           # Recheck after setup/tests in case they crossed 23:15 JST.
           jst_time=$(TZ=Asia/Tokyo date +%H%M)
@@ -69,7 +68,7 @@ jobs:
           echo 'attempted=true' >> "$GITHUB_OUTPUT"
           if [ -n "$TARGET_DATE" ]; then
             python sync.py --date "$TARGET_DATE"
-          elif [ "$SCHEDULE" = '0 23 * * *' ]; then
+          elif [ "$SYNC_MODE" = 'recent' ]; then
             python sync.py --recent-days 3
           else
             python sync.py
