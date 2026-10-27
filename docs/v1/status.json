@@ -301,13 +301,13 @@
       }
     },
     "2026-10-26": {
-      "last_checked_at": "2026-10-27T08:00:14+09:00",
+      "last_checked_at": "2026-10-28T08:00:13+09:00",
       "status": "ok",
-      "last_success_at": "2026-10-27T08:00:14+09:00",
+      "last_success_at": "2026-10-28T08:00:13+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261026.json",
-        "http_last_modified": "Mon, 26 Oct 2026 15:19:39 GMT",
-        "etag": "\"6adf6f8b-149462\""
+        "http_last_modified": "Tue, 27 Oct 2026 18:22:02 GMT",
+        "etag": "\"6ae0ebca-149462\""
       },
       "sha256": "df745eb977373f30b40181a5c7ab988be4939c22037c523bf416316d29051851",
       "summary": {
@@ -322,15 +322,15 @@
       }
     },
     "2026-10-27": {
-      "last_checked_at": "2026-10-27T23:10:21+09:00",
+      "last_checked_at": "2026-10-28T08:00:13+09:00",
       "status": "ok",
-      "last_success_at": "2026-10-27T23:10:21+09:00",
+      "last_success_at": "2026-10-28T08:00:13+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261027.json",
-        "http_last_modified": "Tue, 27 Oct 2026 11:57:08 GMT",
-        "etag": "\"6ae09194-17efb2\""
+        "http_last_modified": "Tue, 27 Oct 2026 18:22:03 GMT",
+        "etag": "\"6ae0ebcb-180ec4\""
       },
-      "sha256": "b77b059578f9e5a8f361330809909d832e39335e90713b8e9065548322a68a19",
+      "sha256": "840d65835d37d59a35356d24849aca265234c0fa4a113ac210f8a8a5b12d7672",
       "summary": {
         "stadium_count": 14,
         "race_count": 168,
@@ -341,9 +341,30 @@
           "一般": 156
         }
       }
+    },
+    "2026-10-28": {
+      "last_checked_at": "2026-10-28T08:00:13+09:00",
+      "status": "ok",
+      "last_success_at": "2026-10-28T08:00:13+09:00",
+      "source": {
+        "url": "https://boatraceopenapi.github.io/api/v1/2026/20261028.json",
+        "http_last_modified": "Tue, 27 Oct 2026 18:22:02 GMT",
+        "etag": "\"6ae0ebca-118e1c\""
+      },
+      "sha256": "5deec5cb88f9a128332ac1d8b7ec4f18a6f78502c97224617081d499fc85fae6",
+      "summary": {
+        "stadium_count": 11,
+        "race_count": 132,
+        "with_preview_count": 132,
+        "with_result_count": 132,
+        "grade_race_counts": {
+          "SG": 12,
+          "一般": 120
+        }
+      }
     }
   },
-  "updated_at": "2026-10-27T23:10:21+09:00",
-  "today_date": "2026-10-27",
+  "updated_at": "2026-10-28T08:00:13+09:00",
+  "today_date": "2026-10-28",
   "today_available": true
 }
