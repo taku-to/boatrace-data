@@ -728,15 +728,15 @@
       }
     },
     "2026-11-15": {
-      "last_checked_at": "2026-11-15T14:10:16+09:00",
+      "last_checked_at": "2026-11-15T14:15:15+09:00",
       "status": "ok",
-      "last_success_at": "2026-11-15T14:10:17+09:00",
+      "last_success_at": "2026-11-15T14:15:15+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261115.json",
-        "http_last_modified": "Sun, 15 Nov 2026 05:03:52 GMT",
-        "etag": "\"6af93d38-157c3b\""
+        "http_last_modified": "Sun, 15 Nov 2026 05:13:38 GMT",
+        "etag": "\"6af93f82-158667\""
       },
-      "sha256": "b1dcbc2162f523e370add9ead25b4bbe06af8a85f02def6d7093062f14b7fb97",
+      "sha256": "50bd5a22aa1b73f8dab006e167ab71693a2f8d6094f0344321846aa93a29cf2a",
       "summary": {
         "stadium_count": 13,
         "race_count": 156,
@@ -750,7 +750,7 @@
       }
     }
   },
-  "updated_at": "2026-11-15T14:10:17+09:00",
+  "updated_at": "2026-11-15T14:15:15+09:00",
   "today_date": "2026-11-15",
   "today_available": true
 }
