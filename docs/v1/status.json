@@ -793,30 +793,30 @@
       }
     },
     "2026-11-18": {
-      "last_checked_at": "2026-11-18T16:10:16+09:00",
+      "last_checked_at": "2026-11-18T16:15:15+09:00",
       "status": "ok",
-      "last_success_at": "2026-11-18T16:10:16+09:00",
+      "last_success_at": "2026-11-18T16:15:15+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261118.json",
-        "http_last_modified": "Wed, 18 Nov 2026 07:03:34 GMT",
-        "etag": "\"6afd4dc6-122cdb\""
+        "http_last_modified": "Wed, 18 Nov 2026 07:13:33 GMT",
+        "etag": "\"6afd501d-120fb5\""
       },
-      "sha256": "3865442f4e4d50901f3174f28e85d7ab5d333f1825e1fadac9cdf8b917622c53",
+      "sha256": "5aef3996d7736f3352d6042d9f7c558e3f90d85e95a9efa6f1a37bc5e244a5dc",
       "summary": {
         "stadium_count": 11,
         "race_count": 132,
         "with_preview_count": 132,
         "with_result_count": 132,
         "grade_race_counts": {
-          "G1": 22,
-          "G3": 9,
-          "一般": 82,
-          "不明": 19
+          "G1": 18,
+          "G3": 8,
+          "一般": 72,
+          "不明": 34
         }
       }
     }
   },
-  "updated_at": "2026-11-18T16:10:16+09:00",
+  "updated_at": "2026-11-18T16:15:15+09:00",
   "today_date": "2026-11-18",
   "today_available": true
 }
