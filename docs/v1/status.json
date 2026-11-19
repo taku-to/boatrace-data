@@ -815,15 +815,15 @@
       }
     },
     "2026-11-19": {
-      "last_checked_at": "2026-11-19T17:50:14+09:00",
+      "last_checked_at": "2026-11-19T17:55:21+09:00",
       "status": "partial",
-      "last_success_at": "2026-11-19T17:50:14+09:00",
+      "last_success_at": "2026-11-19T17:55:31+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261119.json",
-        "http_last_modified": "Thu, 19 Nov 2026 08:43:07 GMT",
-        "etag": "\"6afeb69b-123b84\""
+        "http_last_modified": "Thu, 19 Nov 2026 08:52:59 GMT",
+        "etag": "\"6afeb8eb-124068\""
       },
-      "sha256": "e4a32bf9e3176d2e4b683a2bbfa8cca0ab2fbd710e42117ce558cd064cbb3b2b",
+      "sha256": "2ab2b083cddc0a59b6acb963be490a8ef337814424a6f0bd1e4528bbbd4e2616",
       "summary": {
         "stadium_count": 11,
         "race_count": 132,
@@ -924,77 +924,77 @@
         "11/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "14/09": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "14/10": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "17/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "17/07": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "18/09": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "18/10": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "22/04": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "22/05": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         },
         "22/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795076716,
-          "verified_at": 1795076716,
+          "attempted_at": 1795078521,
+          "verified_at": 1795078521,
           "clock_checked": true
         }
       }
     }
   },
-  "updated_at": "2026-11-19T17:50:14+09:00",
+  "updated_at": "2026-11-19T17:55:31+09:00",
   "today_date": "2026-11-19",
   "today_available": true
 }
