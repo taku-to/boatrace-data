@@ -104,7 +104,7 @@ def reconcile(records, old, previous, now, official):
                 info['state'] = 'scheduled'
                 continue
         # A confirmed result can still be corrected. Revisit it while upstream is degraded.
-        if epoch - info.get('verified_at', 0) >= 1800:
+        if (damaged and not info.get('clock_checked')) or epoch - info.get('verified_at', 0) >= 1800:
             due.append((info.get('attempted_at', 0), key))
         info['state'] = 'verified' if info.get('verified_at') else 'pending'
     for _, key in sorted(due)[:MAX_CHECKS]:
@@ -118,6 +118,12 @@ def reconcile(records, old, previous, now, official):
         if outcome is None:
             info['state'] = 'awaiting_official'
             continue
+        outcome = dict(outcome)
+        closed = outcome.pop('closed_at', None)
+        if info['reason'] == 'empty_program':
+            info['clock_checked'] = True
+            if closed:
+                race['closed_at'] = closed
         current = race.get('result') or {}
         # If the outcome changed, avoid attaching other payouts/placements from an obsolete result.
         if ((current.get('payouts') or {}).get('trifecta') != outcome['payouts']['trifecta']

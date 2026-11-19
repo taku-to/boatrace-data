@@ -119,3 +119,31 @@ class RecoveryTests(unittest.TestCase):
         reconcile(raw, old, {}, NOW, lambda *_: cancelled)
         self.assertEqual(raw['09/05']['result']['payouts']['trifecta'], [])
         self.assertEqual(raw['09/05']['result']['remarks'], 'レース中止')
+
+    def test_deadline_requires_matching_official_column(self):
+        url = '/owpc/pc/race/raceresult?hd=20261119&amp;jcd=04&amp;rno='
+        grid = f'''<table><tr><th>レース</th><th><a href="{url}3">3R</a></th>
+        <th><a href="{url}4">4R</a></th></tr><tr><td>締切予定時刻</td>
+        <td>11:59</td><td>12:13</td></tr></table>'''
+        def parse(grid):
+            return parse_result(markup() + grid, DAY, 4, 4)
+        self.assertEqual(parse(grid)['closed_at'], f'{DAY} 12:13:00')
+        for bad in (grid.replace('20261119', '20261118'), grid.replace('jcd=04', 'jcd=17'),
+                    grid.replace('rno=4', 'rno=5'), grid.replace('12:13', '12:99'),
+                    grid.replace('<td>11:59</td>', ''), grid + grid.replace('12:13', '12:14')):
+            outcome = parse(bad)
+            self.assertNotIn('closed_at', outcome)
+            self.assertEqual(outcome['payouts']['trifecta'], [WIN])
+
+    def test_already_verified_program_uses_official_deadline(self):
+        key = '04/04'
+        old = {key: program(4, paid=True)}
+        state = {key: {'verified_at': int(NOW.timestamp()) - 300}}
+        rows = {key: program(4, damaged=True)}
+        official = dict(parse_result(markup(), DAY, 4, 4), closed_at=f'{DAY} 12:13:00')
+        _, state = reconcile(rows, old, state, NOW, lambda *_: official)
+        self.assertEqual(rows[key]['closed_at'], official['closed_at'])
+        self.assertNotIn('closed_at', rows[key]['result'])
+        again = {key: program(4, damaged=True)}
+        reconcile(again, rows, state, NOW + timedelta(minutes=5), lambda *_: self.fail())
+        self.assertEqual(again, rows)

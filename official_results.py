@@ -114,6 +114,25 @@ def trifecta_rows(table):
     return entries
 
 
+def scheduled_close(tables, day, venue, race):
+    times = set()
+    for table in tables:
+        for headers, row in zip(table, table[1:]):
+            if not row or row[0].text != '締切予定時刻' or len(headers) != len(row):
+                continue
+            if [c.width for c in headers] != [c.width for c in row]:
+                continue
+            for header, cell in zip(headers, row):
+                if (header.text == f'{race}R' and len(header.links) == 1
+                        and race_link(header.links[0], day, 'raceresult') == (venue, race)):
+                    times.add(cell.text)
+    if len(times) == 1:
+        value = times.pop()
+        if re.fullmatch(r'(?:[01]?[0-9]|2[0-3]):[0-5][0-9]', value):
+            return f'{day} {value.zfill(5)}:00'
+    return None
+
+
 def parse_result(body, day, venue, race):
     doc = Tables(body)
     # Race-selector links point to all 12 races. The 出走表 tab identifies this exact race.
@@ -140,8 +159,12 @@ def parse_result(body, day, venue, race):
                 raise ValueError('duplicate refund entry')
     if not entries or refunds is None:
         return None
-    return {'payouts': {'trifecta': entries}, 'refunds': refunds,
-            'remarks': '【返還艇あり】' if refunds else None}
+    outcome = {'payouts': {'trifecta': entries}, 'refunds': refunds,
+               'remarks': '【返還艇あり】' if refunds else None}
+    closed = scheduled_close(doc.tables, day, venue, race)
+    if closed:
+        outcome['closed_at'] = closed
+    return outcome
 
 
 def cancellations(body, day):
