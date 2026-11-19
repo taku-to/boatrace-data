@@ -815,9 +815,9 @@
       }
     },
     "2026-11-19": {
-      "last_checked_at": "2026-11-19T19:15:15+09:00",
+      "last_checked_at": "2026-11-19T19:20:29+09:00",
       "status": "partial",
-      "last_success_at": "2026-11-19T19:15:15+09:00",
+      "last_success_at": "2026-11-19T19:20:35+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261119.json",
         "http_last_modified": "Thu, 19 Nov 2026 10:13:21 GMT",
@@ -840,85 +840,85 @@
         "02/05": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "02/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "04/04": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "04/05": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "04/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "09/02": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "09/03": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "09/04": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "09/05": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "09/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "09/07": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "11/05": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795081516,
-          "verified_at": 1795081516,
+          "attempted_at": 1795083629,
+          "verified_at": 1795083629,
           "clock_checked": true
         },
         "11/06": {
@@ -994,7 +994,7 @@
       }
     }
   },
-  "updated_at": "2026-11-19T19:15:15+09:00",
+  "updated_at": "2026-11-19T19:20:35+09:00",
   "today_date": "2026-11-19",
   "today_available": true
 }
