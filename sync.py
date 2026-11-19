@@ -15,6 +15,9 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
+from recovery import READ_ERRORS, first_snapshot, hollow, reconcile, settled
+from official_results import OfficialResults
+
 JST = ZoneInfo('Asia/Tokyo')
 BASE = 'https://boatraceopenapi.github.io/api/v1'
 GRADES = {1: 'SG', 2: 'G1', 3: 'G2', 4: 'G3', 5: '一般', 6: 'PG1'}
@@ -158,7 +161,8 @@ def read_status(root):
     return value
 
 
-def sync_dates(targets, root, fetcher=fetch, today=None):
+def sync_dates(targets, root, fetcher=fetch, today=None, *, official_factory=OfficialResults,
+               baseline_fetch=first_snapshot, clock=lambda: datetime.now(JST)):
     root = Path(root)
     today = today or datetime.now(JST).date()
     status = read_status(root)
@@ -180,14 +184,35 @@ def sync_dates(targets, root, fetcher=fetch, today=None):
             payload = decode(raw)
             records, summary = validate(payload, target)
             daily = root / f'{target:%Y}/{target:%Y%m%d}.json'
-            if daily.exists():
-                old, _ = validate(decode(daily.read_bytes()), target)
+            old = validate(decode(daily.read_bytes()), target)[0] if daily.exists() else {}
+            now = clock()
+            missing_baseline = {k for k, row in records.items() if hollow(row)
+                                and (k not in old or hollow(old[k]))}
+            if missing_baseline and now.timestamp() - previous.get('baseline_checked_at', 0) >= 3600:
+                entry['baseline_checked_at'] = int(now.timestamp())
+                try:
+                    baseline, _ = validate(decode(baseline_fetch(target)), target)
+                except READ_ERRORS:
+                    baseline = {}
+                for key in missing_baseline:
+                    if key in baseline and not hollow(baseline[key]):
+                        # Keep any subsequently confirmed result, including an official correction.
+                        baseline_row = baseline[key].copy()
+                        if settled(old.get(key, {}).get('result')):
+                            baseline_row['result'] = old[key]['result']
+                        old[key] = baseline_row
+            modified, issues = reconcile(records, old, previous.get('race_recovery', {}), now,
+                                         official_factory(target))
+            if old:
                 check_regression(old, records)
-            # Keep original upstream JSON bytes; do not add fields to the payload.
+            if modified:
+                _, summary = validate(payload, target)
+                raw = json.dumps(payload, ensure_ascii=False, allow_nan=False, separators=(',', ':')).encode()
+            entry['race_recovery'] = issues
             atomic_write(daily, raw)
             if target == today:
                 atomic_write(today_path, raw)
-            entry.update({'status': 'ok', 'last_success_at': timestamp(), 'source': source,
+            entry.update({'status': 'partial' if issues else 'ok', 'last_success_at': timestamp(), 'source': source,
                           'sha256': hashlib.sha256(raw).hexdigest(), 'summary': summary})
             entry.pop('error', None)
             print(f'{target}: saved {summary["stadium_count"]} stadiums / {summary["race_count"]} races')
