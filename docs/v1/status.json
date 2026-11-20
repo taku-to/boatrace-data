@@ -816,13 +816,13 @@
       "race_recovery": {}
     },
     "2026-11-19": {
-      "last_checked_at": "2026-11-20T08:00:20+09:00",
+      "last_checked_at": "2026-11-21T08:00:19+09:00",
       "status": "partial",
-      "last_success_at": "2026-11-20T08:00:20+09:00",
+      "last_success_at": "2026-11-21T08:00:20+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261119.json",
-        "http_last_modified": "Thu, 19 Nov 2026 22:46:08 GMT",
-        "etag": "\"6aff7c30-12b75a\""
+        "http_last_modified": "Fri, 20 Nov 2026 16:38:08 GMT",
+        "etag": "\"6b007770-12b75a\""
       },
       "sha256": "f8b5aae2aab892976417bd7a056bac6c8042bf079ff81419dfcdbec2b8d6e6cd",
       "summary": {
@@ -841,108 +841,58 @@
         "09/02": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795129220,
-          "verified_at": 1795129220,
+          "attempted_at": 1795215620,
+          "verified_at": 1795215620,
           "clock_checked": true
         },
         "09/03": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795129220,
-          "verified_at": 1795129220,
+          "attempted_at": 1795215620,
+          "verified_at": 1795215620,
           "clock_checked": true
         },
         "09/04": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795129220,
-          "verified_at": 1795129220,
+          "attempted_at": 1795215620,
+          "verified_at": 1795215620,
           "clock_checked": true
         },
         "09/05": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795129220,
-          "verified_at": 1795129220,
+          "attempted_at": 1795215620,
+          "verified_at": 1795215620,
           "clock_checked": true
         },
         "09/06": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795129220,
-          "verified_at": 1795129220,
+          "attempted_at": 1795215620,
+          "verified_at": 1795215620,
           "clock_checked": true
         },
         "09/07": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795129220,
-          "verified_at": 1795129220,
+          "attempted_at": 1795215620,
+          "verified_at": 1795215620,
           "clock_checked": true
         }
       }
     },
     "2026-11-20": {
-      "last_checked_at": "2026-11-20T23:10:16+09:00",
-      "status": "partial",
-      "race_recovery": {
-        "01/10": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795182317,
-          "clock_checked": true,
-          "verified_at": 1795182317
-        },
-        "01/11": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795182317,
-          "clock_checked": true,
-          "verified_at": 1795182317
-        },
-        "01/12": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795182317,
-          "clock_checked": true,
-          "verified_at": 1795182317
-        },
-        "15/10": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795182317,
-          "clock_checked": true,
-          "verified_at": 1795182317
-        },
-        "15/11": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795183524,
-          "clock_checked": true,
-          "verified_at": 1795183524
-        },
-        "24/10": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795182317,
-          "clock_checked": true,
-          "verified_at": 1795182317
-        },
-        "24/11": {
-          "reason": "empty_program",
-          "state": "verified",
-          "attempted_at": 1795182916,
-          "clock_checked": true,
-          "verified_at": 1795182916
-        }
-      },
-      "last_success_at": "2026-11-20T23:10:16+09:00",
+      "last_checked_at": "2026-11-21T08:00:19+09:00",
+      "status": "ok",
+      "race_recovery": {},
+      "last_success_at": "2026-11-21T08:00:19+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261120.json",
-        "http_last_modified": "Fri, 20 Nov 2026 12:03:02 GMT",
-        "etag": "\"6b0036f6-143ea7\""
+        "http_last_modified": "Fri, 20 Nov 2026 16:38:06 GMT",
+        "etag": "\"6b00776e-145920\""
       },
-      "sha256": "12bf08bc22b1124464141c2e8906943bacb18a14f18ab823ca7c55559aeef9ff",
+      "sha256": "cebe0b6b363747a31abdabf6b6683705ca80389f363fde7dcdfec39a18eacc1a",
       "summary": {
         "stadium_count": 12,
         "race_count": 144,
@@ -954,9 +904,31 @@
           "一般": 108
         }
       }
+    },
+    "2026-11-21": {
+      "last_checked_at": "2026-11-21T08:00:19+09:00",
+      "status": "ok",
+      "race_recovery": {},
+      "last_success_at": "2026-11-21T08:00:19+09:00",
+      "source": {
+        "url": "https://boatraceopenapi.github.io/api/v1/2026/20261121.json",
+        "http_last_modified": "Fri, 20 Nov 2026 16:38:07 GMT",
+        "etag": "\"6b00776f-164cf7\""
+      },
+      "sha256": "8c30ff3590ae39d69088140ec207a44ab7ba0ab46a45a6339cc5a16b2f4fa075",
+      "summary": {
+        "stadium_count": 14,
+        "race_count": 168,
+        "with_preview_count": 168,
+        "with_result_count": 168,
+        "grade_race_counts": {
+          "G3": 36,
+          "一般": 132
+        }
+      }
     }
   },
-  "updated_at": "2026-11-20T23:10:16+09:00",
-  "today_date": "2026-11-20",
+  "updated_at": "2026-11-21T08:00:20+09:00",
+  "today_date": "2026-11-21",
   "today_available": true
 }
