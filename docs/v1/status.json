@@ -883,14 +883,14 @@
       }
     },
     "2026-11-20": {
-      "last_checked_at": "2026-11-21T08:00:19+09:00",
+      "last_checked_at": "2026-11-22T08:00:16+09:00",
       "status": "ok",
       "race_recovery": {},
-      "last_success_at": "2026-11-21T08:00:19+09:00",
+      "last_success_at": "2026-11-22T08:00:16+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261120.json",
-        "http_last_modified": "Fri, 20 Nov 2026 16:38:06 GMT",
-        "etag": "\"6b00776e-145920\""
+        "http_last_modified": "Sat, 21 Nov 2026 19:53:09 GMT",
+        "etag": "\"6b01f6a5-145920\""
       },
       "sha256": "cebe0b6b363747a31abdabf6b6683705ca80389f363fde7dcdfec39a18eacc1a",
       "summary": {
@@ -906,16 +906,38 @@
       }
     },
     "2026-11-21": {
-      "last_checked_at": "2026-11-21T23:10:14+09:00",
+      "last_checked_at": "2026-11-22T08:00:16+09:00",
       "status": "ok",
       "race_recovery": {},
-      "last_success_at": "2026-11-21T23:10:14+09:00",
+      "last_success_at": "2026-11-22T08:00:16+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261121.json",
-        "http_last_modified": "Sat, 21 Nov 2026 12:02:56 GMT",
-        "etag": "\"6b018870-180970\""
+        "http_last_modified": "Sat, 21 Nov 2026 19:53:10 GMT",
+        "etag": "\"6b01f6a6-18097e\""
       },
-      "sha256": "a3ab013c978384a2e087007bc5406d74da380ee4d3b8261a7a05520c981e323e",
+      "sha256": "072962c509b95cab0434c803a9c5797eabc37e404a127c7536045b15d41fa9ac",
+      "summary": {
+        "stadium_count": 14,
+        "race_count": 168,
+        "with_preview_count": 168,
+        "with_result_count": 168,
+        "grade_race_counts": {
+          "G3": 36,
+          "一般": 132
+        }
+      }
+    },
+    "2026-11-22": {
+      "last_checked_at": "2026-11-22T08:00:15+09:00",
+      "status": "ok",
+      "race_recovery": {},
+      "last_success_at": "2026-11-22T08:00:16+09:00",
+      "source": {
+        "url": "https://boatraceopenapi.github.io/api/v1/2026/20261122.json",
+        "http_last_modified": "Sat, 21 Nov 2026 19:53:09 GMT",
+        "etag": "\"6b01f6a5-164d0c\""
+      },
+      "sha256": "848bd43e6fffd88247e9cca4703b9dbc6e0c6d44258aaac78c7d031ae547ed78",
       "summary": {
         "stadium_count": 14,
         "race_count": 168,
@@ -928,7 +950,7 @@
       }
     }
   },
-  "updated_at": "2026-11-21T23:10:14+09:00",
-  "today_date": "2026-11-21",
+  "updated_at": "2026-11-22T08:00:16+09:00",
+  "today_date": "2026-11-22",
   "today_available": true
 }
