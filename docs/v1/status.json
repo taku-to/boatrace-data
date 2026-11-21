@@ -906,7 +906,7 @@
       }
     },
     "2026-11-21": {
-      "last_checked_at": "2026-11-21T13:15:15+09:00",
+      "last_checked_at": "2026-11-21T13:20:19+09:00",
       "status": "partial",
       "race_recovery": {
         "02/01": {
@@ -947,9 +947,9 @@
         "05/02": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795232715,
+          "attempted_at": 1795234820,
           "clock_checked": true,
-          "verified_at": 1795232715
+          "verified_at": 1795234820
         },
         "05/03": {
           "reason": "empty_program",
@@ -968,9 +968,9 @@
         "09/02": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795232715,
+          "attempted_at": 1795234820,
           "clock_checked": true,
-          "verified_at": 1795232715
+          "verified_at": 1795234820
         },
         "10/01": {
           "reason": "empty_program",
@@ -1010,9 +1010,9 @@
         "13/03": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795232715,
+          "attempted_at": 1795234820,
           "clock_checked": true,
-          "verified_at": 1795232715
+          "verified_at": 1795234820
         },
         "14/01": {
           "reason": "empty_program",
@@ -1080,23 +1080,23 @@
         "21/05": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795232715,
+          "attempted_at": 1795234820,
           "clock_checked": true,
-          "verified_at": 1795232715
+          "verified_at": 1795234820
         },
         "21/06": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795232715,
+          "attempted_at": 1795234820,
           "clock_checked": true,
-          "verified_at": 1795232715
+          "verified_at": 1795234820
         },
         "22/01": {
           "reason": "empty_program",
           "state": "verified",
-          "attempted_at": 1795232715,
+          "attempted_at": 1795234820,
           "clock_checked": true,
-          "verified_at": 1795232715
+          "verified_at": 1795234820
         },
         "22/02": {
           "reason": "empty_program",
@@ -1106,7 +1106,7 @@
           "verified_at": 1795233921
         }
       },
-      "last_success_at": "2026-11-21T13:15:28+09:00",
+      "last_success_at": "2026-11-21T13:20:26+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261121.json",
         "http_last_modified": "Sat, 21 Nov 2026 04:13:51 GMT",
@@ -1125,7 +1125,7 @@
       }
     }
   },
-  "updated_at": "2026-11-21T13:15:28+09:00",
+  "updated_at": "2026-11-21T13:20:26+09:00",
   "today_date": "2026-11-21",
   "today_available": true
 }
