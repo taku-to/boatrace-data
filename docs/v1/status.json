@@ -972,7 +972,7 @@
       }
     },
     "2026-11-24": {
-      "last_checked_at": "2026-11-24T16:54:16+09:00",
+      "last_checked_at": "2026-11-24T16:56:24+09:00",
       "status": "partial",
       "race_recovery": {
         "07/04": {
@@ -987,6 +987,12 @@
           "attempted_at": 1795505295,
           "verified_at": 1795505295
         },
+        "12/04": {
+          "reason": "missing_result",
+          "state": "verified",
+          "attempted_at": 1795506984,
+          "verified_at": 1795506984
+        },
         "15/03": {
           "reason": "missing_result",
           "state": "verified",
@@ -996,8 +1002,8 @@
         "19/03": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795505057,
-          "verified_at": 1795505057
+          "attempted_at": 1795506984,
+          "verified_at": 1795506984
         },
         "19/04": {
           "reason": "missing_result",
@@ -1014,22 +1020,22 @@
         "24/03": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795505175,
-          "verified_at": 1795505175
+          "attempted_at": 1795506984,
+          "verified_at": 1795506984
         }
       },
-      "last_success_at": "2026-11-24T16:54:16+09:00",
+      "last_success_at": "2026-11-24T16:56:27+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261124.json",
         "http_last_modified": "Tue, 24 Nov 2026 07:24:16 GMT",
         "etag": "\"6b053ba0-1933fa\""
       },
-      "sha256": "3b8ec457fb780cca32bda2d9b03c6ca81cd21fd3b54a9b9c3e1c070b521eafcd",
+      "sha256": "188151f8d0bf3a8dad36d938cff5152b7523926d22f6743934ccc46f61829792",
       "summary": {
         "stadium_count": 15,
         "race_count": 180,
         "with_preview_count": 180,
-        "with_result_count": 137,
+        "with_result_count": 138,
         "grade_race_counts": {
           "G3": 36,
           "SG": 12,
@@ -1038,7 +1044,7 @@
       }
     }
   },
-  "updated_at": "2026-11-24T16:54:16+09:00",
+  "updated_at": "2026-11-24T16:56:27+09:00",
   "today_date": "2026-11-24",
   "today_available": true
 }
