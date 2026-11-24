@@ -100,7 +100,7 @@ def validate(payload, target):
     return records, {
         'stadium_count': len(stadiums), 'race_count': len(records),
         'with_preview_count': sum(bool(r.get('preview')) for r in records.values()),
-        'with_result_count': sum(bool(r.get('result')) for r in records.values()),
+        'with_result_count': sum(settled(r.get('result')) for r in records.values()),
         'grade_race_counts': dict(sorted(grades.items())),
     }
 

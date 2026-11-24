@@ -1,5 +1,5 @@
-"""Preserve the last usable publication and reconcile only damaged race records."""
-from datetime import datetime
+"""Preserve usable race data and reconcile damaged programs or overdue payouts."""
+from datetime import datetime, timedelta
 from http.client import HTTPException
 import json
 import re
@@ -11,6 +11,7 @@ from official_results import CANCELLED
 
 READ_ERRORS = (ValueError, OSError, HTTPException, URLError)
 MAX_CHECKS = 12
+PAYOUT_GRACE = timedelta(minutes=10)
 
 
 def hollow(race):
@@ -76,12 +77,10 @@ def reconcile(records, old, previous, now, official):
         damaged = hollow(race)
         result = race.get('result') or {}
         prior_result = prior.get('result') or {}
-        lost_result = settled(prior_result) and not settled(result)
-        if not (damaged or lost_result or (last and not settled(result))):
+        confirmed = settled(result)
+        if confirmed and not damaged:
             continue
-        info = dict(last)
-        issues[key] = info
-        info['reason'] = 'empty_program' if damaged else 'missing_result'
+        lost_result = not confirmed and settled(prior_result)
         if damaged and prior and not hollow(prior):
             # Only the program is borrowed. Accept independently corrected upstream results.
             race.update({k: v for k, v in prior.items() if k not in ('preview', 'result')})
@@ -92,17 +91,24 @@ def reconcile(records, old, previous, now, official):
         if lost_result:
             race['result'] = prior_result
             changed = True
-        if settled(result) and result != prior_result:
+        # Upstream timestamps without an offset are local race times (JST).
+        try:
+            closing = datetime.fromisoformat(race.get('closed_at'))
+            if closing.tzinfo is None:
+                closing = closing.replace(tzinfo=now.tzinfo)
+        except (TypeError, ValueError):
+            closing = None
+        due_at = closing if damaged or closing is None else closing + PAYOUT_GRACE
+        if not (damaged or lost_result or last or (due_at is not None and now >= due_at)):
+            continue
+        info = dict(last)
+        issues[key] = info
+        info['reason'] = 'empty_program' if damaged else 'missing_result'
+        if confirmed and result != prior_result:
             info.pop('verified_at', None)
-        closed = race.get('closed_at')
-        if closed:
-            try:
-                closing = datetime.fromisoformat(closed).replace(tzinfo=now.tzinfo)
-            except (TypeError, ValueError):
-                closing = None
-            if closing and closing > now:
-                info['state'] = 'scheduled'
-                continue
+        if due_at is not None and now < due_at:
+            info['state'] = 'scheduled'
+            continue
         # A confirmed result can still be corrected. Revisit it while upstream is degraded.
         if (damaged and not info.get('clock_checked')) or epoch - info.get('verified_at', 0) >= 1800:
             due.append((info.get('attempted_at', 0), key))

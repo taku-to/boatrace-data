@@ -7,7 +7,7 @@ import unittest
 
 from official_results import cancellations, parse_result
 from recovery import reconcile
-from sync import sync_dates
+from sync import sync_dates, validate
 
 DAY = date(2026, 11, 19)
 NOW = datetime(2026, 11, 19, 13, 10, tzinfo=timezone(timedelta(hours=9)))
@@ -36,6 +36,52 @@ def markup(combo='1-4-2', amount='¥1,210', refund='', extra=''):
 
 
 class RecoveryTests(unittest.TestCase):
+    def test_overdue_payout_retries_until_confirmed_and_upstream_catches_up(self):
+        key = '04/06'
+        race = program(6)
+        race['closed_at'] = f'{DAY} 12:43:00'
+        incoming = {key: race}
+        def unexpected(*_):
+            self.fail('unexpected official request')
+        for clock in ('12:40:00', '12:52:59'):
+            now = datetime.fromisoformat(f'{DAY}T{clock}+09:00')
+            self.assertEqual(reconcile(incoming, {}, {}, now, unexpected), (False, {}))
+
+        due = datetime.fromisoformat(f'{DAY}T12:53:00+09:00')
+        calls = []
+        def unpublished(venue, number):
+            calls.append((venue, number))
+        changed, pending = reconcile(incoming, {}, {}, due, unpublished)
+        self.assertFalse(changed)
+        self.assertEqual(calls, [(4, 6)])
+        self.assertEqual(pending[key]['state'], 'awaiting_official')
+
+        rows = copy.deepcopy(incoming)
+        outcome = {'payouts': {'trifecta': [WIN]}, 'refunds': [], 'remarks': None}
+        changed, verified = reconcile(rows, {}, pending, due + timedelta(minutes=5), lambda *_: outcome)
+        self.assertTrue(changed)
+        self.assertEqual(rows[key]['result']['payouts'], outcome['payouts'])
+        repeat = copy.deepcopy(incoming)
+        reconcile(repeat, rows, verified, due + timedelta(minutes=10), unexpected)
+        self.assertEqual(repeat, rows)
+        corrected = program(6, paid=True)
+        corrected['result']['payouts']['trifecta'][0] = dict(WIN, amount=1500)
+        self.assertEqual(reconcile({key: corrected}, rows, verified, NOW, unexpected), (False, {}))
+
+    def test_settled_count_and_missing_deadlines(self):
+        rows = [program(n) for n in range(1, 7)]
+        rows[0]['closed_at'] = None
+        rows[1]['closed_at'] = 'invalid'
+        rows[2]['result'] = None
+        rows[3]['result']['remarks'] = 'レース中止'
+        rows[4]['result']['payouts']['trifecta'] = [WIN]
+        rows[5]['result']['payouts']['trifecta'] = [dict(WIN, amount=0)]
+        records, summary = validate(json.loads(doc(rows)), DAY)
+        self.assertEqual(summary['with_result_count'], 2)
+        calls = []
+        reconcile(records, {}, {}, NOW, lambda v, n: calls.append(n))
+        self.assertEqual(calls, [3, 6])
+
     def test_targeted_merge_retry_correction_and_upstream_recovery(self):
         before = doc([program(4, paid=True), program(5), program(6)])
         incoming = doc([program(4, damaged=True), program(5, damaged=True), program(6, paid=True)])
@@ -51,7 +97,7 @@ class RecoveryTests(unittest.TestCase):
                                             official_factory=lambda _: lookup, clock=lambda: now), 0)
                 self.assertEqual((root/'today.json').read_bytes(), daily.read_bytes())
                 return json.loads(daily.read_bytes())['programs']['stadiums']['4']['races']
-            sync(before, lambda *_: self.fail())
+            sync(before, lambda *_: self.fail(), NOW.replace(hour=12, minute=10))
             def fail(*_):
                 raise TimeoutError()
             rows = sync(incoming, fail)
