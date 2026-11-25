@@ -1074,7 +1074,7 @@
       }
     },
     "2026-11-25": {
-      "last_checked_at": "2026-11-25T13:40:16+09:00",
+      "last_checked_at": "2026-11-25T13:42:16+09:00",
       "status": "partial",
       "race_recovery": {
         "05/07": {
@@ -1090,11 +1090,11 @@
           "verified_at": 1795581382
         }
       },
-      "last_success_at": "2026-11-25T13:40:17+09:00",
+      "last_success_at": "2026-11-25T13:42:16+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261125.json",
-        "http_last_modified": "Wed, 25 Nov 2026 04:38:37 GMT",
-        "etag": "\"6b06664d-1553af\""
+        "http_last_modified": "Wed, 25 Nov 2026 04:38:39 GMT",
+        "etag": "\"6b06664f-1553af\""
       },
       "sha256": "3041ff81060cb7b97a4737258522eb5c27af4a25366af7c8561a1f5e7a27e1de",
       "summary": {
@@ -1110,7 +1110,7 @@
       }
     }
   },
-  "updated_at": "2026-11-25T13:40:17+09:00",
+  "updated_at": "2026-11-25T13:42:16+09:00",
   "today_date": "2026-11-25",
   "today_available": true
 }
