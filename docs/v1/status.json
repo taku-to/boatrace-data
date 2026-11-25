@@ -1074,80 +1074,14 @@
       }
     },
     "2026-11-25": {
-      "last_checked_at": "2026-11-25T13:18:19+09:00",
+      "last_checked_at": "2026-11-25T13:20:16+09:00",
       "status": "partial",
       "race_recovery": {
-        "05/05": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579577,
-          "verified_at": 1795579577
-        },
-        "05/06": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579336,
-          "verified_at": 1795579336
-        },
-        "08/05": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795578978,
-          "verified_at": 1795578978
-        },
-        "08/06": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795578855,
-          "verified_at": 1795578855
-        },
-        "10/08": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795578737,
-          "verified_at": 1795578737
-        },
-        "10/09": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795578978,
-          "verified_at": 1795578978
-        },
-        "11/05": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579475,
-          "verified_at": 1795579475
-        },
-        "11/06": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579336,
-          "verified_at": 1795579336
-        },
-        "13/05": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579475,
-          "verified_at": 1795579475
-        },
         "13/06": {
           "reason": "missing_result",
           "state": "verified",
           "attempted_at": 1795579697,
           "verified_at": 1795579697
-        },
-        "17/05": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795578737,
-          "verified_at": 1795578737
-        },
-        "17/06": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795578737,
-          "verified_at": 1795578737
         },
         "17/07": {
           "reason": "missing_result",
@@ -1155,29 +1089,11 @@
           "attempted_at": 1795580299,
           "verified_at": 1795580299
         },
-        "18/08": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579697,
-          "verified_at": 1795579697
-        },
-        "18/09": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579697,
-          "verified_at": 1795579697
-        },
         "18/10": {
           "reason": "missing_result",
           "state": "verified",
           "attempted_at": 1795579817,
           "verified_at": 1795579817
-        },
-        "21/09": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795579945,
-          "verified_at": 1795579945
         },
         "21/10": {
           "reason": "missing_result",
@@ -1186,13 +1102,13 @@
           "verified_at": 1795580177
         }
       },
-      "last_success_at": "2026-11-25T13:18:21+09:00",
+      "last_success_at": "2026-11-25T13:20:17+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261125.json",
-        "http_last_modified": "Wed, 25 Nov 2026 03:29:02 GMT",
-        "etag": "\"6b0655fe-151edb\""
+        "http_last_modified": "Wed, 25 Nov 2026 04:18:36 GMT",
+        "etag": "\"6b06619c-15439d\""
       },
-      "sha256": "b2860bff1e74ec5835420462afa5b42a2270bbfdd9669e3090c5a996b50bacdf",
+      "sha256": "91663538945aaa70757b92a94970954396b1ce979e64e7362ad325c1e6e32643",
       "summary": {
         "stadium_count": 13,
         "race_count": 156,
@@ -1206,7 +1122,7 @@
       }
     }
   },
-  "updated_at": "2026-11-25T13:18:21+09:00",
+  "updated_at": "2026-11-25T13:20:17+09:00",
   "today_date": "2026-11-25",
   "today_available": true
 }
