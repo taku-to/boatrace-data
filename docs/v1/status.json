@@ -1097,35 +1097,23 @@
       }
     },
     "2026-11-26": {
-      "last_checked_at": "2026-11-26T09:48:16+09:00",
+      "last_checked_at": "2026-11-26T09:50:17+09:00",
       "status": "partial",
       "race_recovery": {
-        "18/02": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795652416,
-          "verified_at": 1795652416
-        },
         "18/03": {
           "reason": "missing_result",
           "state": "verified",
           "attempted_at": 1795653977,
           "verified_at": 1795653977
-        },
-        "23/03": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795653496,
-          "verified_at": 1795653496
         }
       },
-      "last_success_at": "2026-11-26T09:48:16+09:00",
+      "last_success_at": "2026-11-26T09:50:17+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261126.json",
-        "http_last_modified": "Thu, 26 Nov 2026 00:33:38 GMT",
-        "etag": "\"6b077e62-132ba5\""
+        "http_last_modified": "Thu, 26 Nov 2026 00:48:26 GMT",
+        "etag": "\"6b0781da-133072\""
       },
-      "sha256": "9ea3265c36dd3d16b120ad73cae942fb600690a4a587bf787912ad419bf55901",
+      "sha256": "dff0029bf0b6f8aa06ea22e46776b94754e3f11ecad9d837ae5bebb675562081",
       "summary": {
         "stadium_count": 12,
         "race_count": 144,
@@ -1139,7 +1127,7 @@
       }
     }
   },
-  "updated_at": "2026-11-26T09:48:16+09:00",
+  "updated_at": "2026-11-26T09:50:17+09:00",
   "today_date": "2026-11-26",
   "today_available": true
 }
