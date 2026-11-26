@@ -1097,7 +1097,7 @@
       }
     },
     "2026-11-26": {
-      "last_checked_at": "2026-11-26T15:32:16+09:00",
+      "last_checked_at": "2026-11-26T15:34:17+09:00",
       "status": "partial",
       "race_recovery": {
         "05/11": {
@@ -1106,17 +1106,17 @@
           "attempted_at": 1795674376,
           "verified_at": 1795674376
         },
-        "11/11": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795674017,
-          "verified_at": 1795674017
-        },
         "12/01": {
           "reason": "missing_result",
           "state": "verified",
           "attempted_at": 1795674497,
           "verified_at": 1795674497
+        },
+        "15/01": {
+          "reason": "missing_result",
+          "state": "verified",
+          "attempted_at": 1795674857,
+          "verified_at": 1795674857
         },
         "19/01": {
           "reason": "missing_result",
@@ -1131,18 +1131,18 @@
           "verified_at": 1795674617
         }
       },
-      "last_success_at": "2026-11-26T15:32:17+09:00",
+      "last_success_at": "2026-11-26T15:34:19+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261126.json",
-        "http_last_modified": "Thu, 26 Nov 2026 06:31:27 GMT",
-        "etag": "\"6b07d23f-13ffa9\""
+        "http_last_modified": "Thu, 26 Nov 2026 06:34:06 GMT",
+        "etag": "\"6b07d2de-140242\""
       },
-      "sha256": "14c5e03eaa93037f9b592415eea00f2a8d8e0f48d79a4c4076d289f32fbb2518",
+      "sha256": "0e8321c296ca94b588863b44ca27f20425df2e90a1049b1fec2e0a41069b74e7",
       "summary": {
         "stadium_count": 12,
         "race_count": 144,
         "with_preview_count": 144,
-        "with_result_count": 92,
+        "with_result_count": 93,
         "grade_race_counts": {
           "G3": 12,
           "SG": 12,
@@ -1151,7 +1151,7 @@
       }
     }
   },
-  "updated_at": "2026-11-26T15:32:17+09:00",
+  "updated_at": "2026-11-26T15:34:19+09:00",
   "today_date": "2026-11-26",
   "today_available": true
 }
