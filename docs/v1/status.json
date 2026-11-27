@@ -1120,7 +1120,7 @@
       }
     },
     "2026-11-27": {
-      "last_checked_at": "2026-11-27T12:04:24+09:00",
+      "last_checked_at": "2026-11-27T12:06:17+09:00",
       "status": "partial",
       "race_recovery": {
         "02/03": {
@@ -1128,6 +1128,12 @@
           "state": "verified",
           "attempted_at": 1795747817,
           "verified_at": 1795747817
+        },
+        "03/03": {
+          "reason": "missing_result",
+          "state": "verified",
+          "attempted_at": 1795748777,
+          "verified_at": 1795748777
         },
         "08/04": {
           "reason": "missing_result",
@@ -1140,6 +1146,12 @@
           "state": "verified",
           "attempted_at": 1795748058,
           "verified_at": 1795748058
+        },
+        "14/08": {
+          "reason": "missing_result",
+          "state": "verified",
+          "attempted_at": 1795748777,
+          "verified_at": 1795748777
         },
         "17/04": {
           "reason": "missing_result",
@@ -1154,18 +1166,18 @@
           "verified_at": 1795747937
         }
       },
-      "last_success_at": "2026-11-27T12:04:24+09:00",
+      "last_success_at": "2026-11-27T12:06:20+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261127.json",
-        "http_last_modified": "Fri, 27 Nov 2026 02:54:16 GMT",
-        "etag": "\"6b08f0d8-16ab6e\""
+        "http_last_modified": "Fri, 27 Nov 2026 02:54:15 GMT",
+        "etag": "\"6b08f0d7-16ab6e\""
       },
-      "sha256": "d36a45c81fd59bcb4406549426f3d588c947a83808e59f4c08a162161fdfadf6",
+      "sha256": "ae72830c6dae12772cfe69ff8c7591aca604ec81a15bc2fc8bb34b38cfed1adc",
       "summary": {
         "stadium_count": 14,
         "race_count": 168,
         "with_preview_count": 168,
-        "with_result_count": 41,
+        "with_result_count": 43,
         "grade_race_counts": {
           "G3": 12,
           "SG": 12,
@@ -1174,7 +1186,7 @@
       }
     }
   },
-  "updated_at": "2026-11-27T12:04:24+09:00",
+  "updated_at": "2026-11-27T12:06:20+09:00",
   "today_date": "2026-11-27",
   "today_available": true
 }
