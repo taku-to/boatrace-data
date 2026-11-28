@@ -1143,138 +1143,138 @@
       }
     },
     "2026-11-28": {
-      "last_checked_at": "2026-11-28T17:02:27+09:00",
+      "last_checked_at": "2026-11-28T17:04:26+09:00",
       "status": "partial",
       "race_recovery": {
-        "01/04": {
-          "reason": "missing_result",
-          "state": "awaiting_official",
-          "attempted_at": 1795852947
-        },
-        "07/04": {
-          "reason": "missing_result",
-          "state": "awaiting_official",
-          "attempted_at": 1795852947
-        },
         "15/01": {
           "reason": "missing_result",
-          "state": "pending",
-          "attempted_at": 1795852817
+          "state": "awaiting_official",
+          "attempted_at": 1795853066
         },
         "15/02": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "15/03": {
           "reason": "missing_result",
-          "state": "pending",
-          "attempted_at": 1795852817
+          "state": "awaiting_official",
+          "attempted_at": 1795853066
         },
         "15/04": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "15/05": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "18/07": {
           "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795852817,
+          "state": "awaiting_official",
+          "attempted_at": 1795853066,
           "verified_at": 1795842623
         },
         "18/08": {
           "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795852817,
+          "state": "awaiting_official",
+          "attempted_at": 1795853066,
           "verified_at": 1795841543
         },
         "18/09": {
           "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795852817,
+          "state": "awaiting_official",
+          "attempted_at": 1795853066,
           "verified_at": 1795842379
         },
         "18/10": {
           "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795852817,
+          "state": "awaiting_official",
+          "attempted_at": 1795853066,
           "verified_at": 1795842018
         },
         "18/11": {
           "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795852817,
+          "state": "awaiting_official",
+          "attempted_at": 1795853066,
           "verified_at": 1795841777
         },
         "18/12": {
           "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795852817,
+          "state": "awaiting_official",
+          "attempted_at": 1795853066,
           "verified_at": 1795842977
         },
         "20/01": {
           "reason": "missing_result",
-          "state": "pending",
-          "attempted_at": 1795852817
+          "state": "awaiting_official",
+          "attempted_at": 1795853066
         },
         "20/02": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "20/03": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "20/04": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "20/05": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
+        },
+        "20/06": {
+          "reason": "missing_result",
+          "state": "awaiting_official",
+          "attempted_at": 1795853066
         },
         "24/01": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "24/02": {
           "reason": "missing_result",
-          "state": "pending",
-          "attempted_at": 1795852817
+          "state": "awaiting_official",
+          "attempted_at": 1795853066
         },
         "24/03": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
         },
         "24/04": {
           "reason": "missing_result",
-          "state": "awaiting_official",
+          "state": "pending",
           "attempted_at": 1795852947
+        },
+        "24/05": {
+          "reason": "missing_result",
+          "state": "awaiting_official",
+          "attempted_at": 1795853066
         }
       },
-      "last_success_at": "2026-11-28T17:03:46+09:00",
+      "last_success_at": "2026-11-28T17:05:45+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261128.json",
-        "http_last_modified": "Sat, 28 Nov 2026 07:53:42 GMT",
-        "etag": "\"6b0a8886-1764ad\""
+        "http_last_modified": "Sat, 28 Nov 2026 08:03:44 GMT",
+        "etag": "\"6b0a8ae0-176997\""
       },
-      "sha256": "42e51ec396aad137a86430261565f90397dc0bb9f98d8c1cbc32ee8529e5059b",
+      "sha256": "f7bf136613961f3cbb5f633e714a54176a10e204fb202770ef6ceb6622a87788",
       "summary": {
         "stadium_count": 14,
         "race_count": 168,
         "with_preview_count": 168,
-        "with_result_count": 114,
+        "with_result_count": 116,
         "grade_race_counts": {
           "G3": 12,
           "SG": 12,
@@ -1283,7 +1283,7 @@
       }
     }
   },
-  "updated_at": "2026-11-28T17:03:46+09:00",
+  "updated_at": "2026-11-28T17:05:45+09:00",
   "today_date": "2026-11-28",
   "today_available": true
 }
