@@ -1143,7 +1143,7 @@
       }
     },
     "2026-11-28": {
-      "last_checked_at": "2026-11-28T13:20:16+09:00",
+      "last_checked_at": "2026-11-28T13:22:19+09:00",
       "status": "partial",
       "race_recovery": {
         "02/06": {
@@ -1151,6 +1151,12 @@
           "state": "verified",
           "attempted_at": 1795839017,
           "verified_at": 1795839017
+        },
+        "08/07": {
+          "reason": "missing_result",
+          "state": "verified",
+          "attempted_at": 1795839739,
+          "verified_at": 1795839739
         },
         "14/10": {
           "reason": "missing_result",
@@ -1167,8 +1173,8 @@
         "18/08": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795837938,
-          "verified_at": 1795837938
+          "attempted_at": 1795839739,
+          "verified_at": 1795839739
         },
         "18/09": {
           "reason": "missing_result",
@@ -1189,18 +1195,18 @@
           "verified_at": 1795839497
         }
       },
-      "last_success_at": "2026-11-28T13:20:16+09:00",
+      "last_success_at": "2026-11-28T13:22:20+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261128.json",
-        "http_last_modified": "Sat, 28 Nov 2026 04:14:21 GMT",
-        "etag": "\"6b0a551d-16e6fb\""
+        "http_last_modified": "Sat, 28 Nov 2026 04:14:20 GMT",
+        "etag": "\"6b0a551c-16e6fb\""
       },
-      "sha256": "a0d1d1b904df50b23f5aa6d3a82e12a4731a7ddad2f9c2ad8d5a32ba0e57c9f4",
+      "sha256": "625aa21e81a5ee481e01833d98b557e0c77105c63d14bde75ff5c33d7dd09016",
       "summary": {
         "stadium_count": 14,
         "race_count": 168,
         "with_preview_count": 168,
-        "with_result_count": 66,
+        "with_result_count": 67,
         "grade_race_counts": {
           "G3": 12,
           "SG": 12,
@@ -1209,7 +1215,7 @@
       }
     }
   },
-  "updated_at": "2026-11-28T13:20:16+09:00",
+  "updated_at": "2026-11-28T13:22:20+09:00",
   "today_date": "2026-11-28",
   "today_available": true
 }
