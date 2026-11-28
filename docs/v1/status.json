@@ -1143,26 +1143,14 @@
       }
     },
     "2026-11-28": {
-      "last_checked_at": "2026-11-28T13:24:17+09:00",
+      "last_checked_at": "2026-11-28T13:26:15+09:00",
       "status": "partial",
       "race_recovery": {
-        "02/06": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795839017,
-          "verified_at": 1795839017
-        },
         "08/07": {
           "reason": "missing_result",
           "state": "verified",
           "attempted_at": 1795839739,
           "verified_at": 1795839739
-        },
-        "14/10": {
-          "reason": "missing_result",
-          "state": "verified",
-          "attempted_at": 1795839257,
-          "verified_at": 1795839257
         },
         "18/07": {
           "reason": "missing_result",
@@ -1188,25 +1176,25 @@
           "attempted_at": 1795838177,
           "verified_at": 1795838177
         },
-        "23/10": {
+        "18/11": {
           "reason": "missing_result",
           "state": "verified",
-          "attempted_at": 1795839497,
-          "verified_at": 1795839497
+          "attempted_at": 1795839976,
+          "verified_at": 1795839976
         }
       },
-      "last_success_at": "2026-11-28T13:24:17+09:00",
+      "last_success_at": "2026-11-28T13:26:16+09:00",
       "source": {
         "url": "https://boatraceopenapi.github.io/api/v1/2026/20261128.json",
-        "http_last_modified": "Sat, 28 Nov 2026 04:14:22 GMT",
-        "etag": "\"6b0a551e-16e6fb\""
+        "http_last_modified": "Sat, 28 Nov 2026 04:24:36 GMT",
+        "etag": "\"6b0a5784-16eea8\""
       },
-      "sha256": "625aa21e81a5ee481e01833d98b557e0c77105c63d14bde75ff5c33d7dd09016",
+      "sha256": "bf32d3a1ee315a8ba06153ab6ab1ba735064a9c39a4eeb3766904f67e9ab4b87",
       "summary": {
         "stadium_count": 14,
         "race_count": 168,
         "with_preview_count": 168,
-        "with_result_count": 67,
+        "with_result_count": 68,
         "grade_race_counts": {
           "G3": 12,
           "SG": 12,
@@ -1215,7 +1203,7 @@
       }
     }
   },
-  "updated_at": "2026-11-28T13:24:17+09:00",
+  "updated_at": "2026-11-28T13:26:16+09:00",
   "today_date": "2026-11-28",
   "today_available": true
 }
